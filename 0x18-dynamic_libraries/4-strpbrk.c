@@ -1,5 +1,3 @@
-include "main.h"
-
 /**
  * _strpbrk - searches a string for any of a set of bytes
  * @s: string to check
@@ -7,20 +5,23 @@ include "main.h"
  *
  * Return: pointer to byte in s that matches or NULL if no match
  */
-
 char *_strpbrk(char *s, char *accept)
 {
 	unsigned int i, j;
 
+	/* Loop through the characters in the string s */
 	for (i = 0; s[i]; i++)
 	{
+		/* Loop through the characters in the accept string */
 		for (j = 0; accept[j]; j++)
 		{
+			/* If a matching character is found, return a pointer to that character in s */
 			if (s[i] == accept[j])
-				break;
+				return (s + i);
 		}
-		if (accept[j])
-			return (s + i);
 	}
-	return (0);
+
+	/* If no match is found, return NULL */
+	return (NULL);
 }
+
